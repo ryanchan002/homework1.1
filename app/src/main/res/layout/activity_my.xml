@@ -21,20 +21,20 @@
         android:layout_height="wrap_content"
         android:text="Pop"
         android:onClick="sendMessage"
-        android:id="@+id/sendButton" />
+        android:id="@+id/popButton" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Push"
-        android:id="@+id/button"
+        android:id="@+id/pushButton"
         android:layout_gravity="bottom" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Quit"
-        android:id="@+id/button2"
+        android:id="@+id/quitButton"
         android:layout_gravity="bottom" />
 
 </LinearLayout>

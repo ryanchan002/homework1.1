@@ -2,6 +2,7 @@ package com.ryanchan.myfirstapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
@@ -19,19 +20,48 @@ public class MyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
 
-        Button theButton = (Button)findViewById(R.id.sendButton);
+        Button theButton = (Button)findViewById(R.id.pushButton);
+
+        EditText input = (EditText)findViewById(R.id.mainTextField);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER);
+        input.setText("");
+
+        TextView textView = (TextView)findViewById(R.id.mainTextView);
+        textView.setText("");
 
         theButton.setOnClickListener(
                 new Button.OnClickListener()
                 {
                     public void onClick(View v)
                     {
+                        EditText theTextField = (EditText)findViewById(R.id.mainTextField);
+
                         TextView theTextView = (TextView)findViewById(R.id.mainTextView);
-                        theTextView.setText("hello");
+                        theTextView.setText(String.format("%s %s", theTextView.getText(), theTextField.getText()) );
+
+                        theTextField.setText("");
                     }
                 }
 
         );
+
+
+        Button quitButton = (Button)findViewById(R.id.quitButton);
+        quitButton.setOnClickListener(
+                new Button.OnClickListener()
+                {
+
+                    public void onClick(View v)
+                    {
+                        System.exit(0);
+
+                    }
+
+                }
+
+
+        );
+
 
     }
 
