@@ -2,18 +2,20 @@ package com.ryanchan.myfirstapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 public class MyActivity extends AppCompatActivity {
 
-
+    private ArrayList<Editable> numList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,15 +31,20 @@ public class MyActivity extends AppCompatActivity {
         TextView textView = (TextView)findViewById(R.id.mainTextView);
         textView.setText("");
 
+        numList = new ArrayList<>();
+
         theButton.setOnClickListener(
                 new Button.OnClickListener()
                 {
                     public void onClick(View v)
                     {
                         EditText theTextField = (EditText)findViewById(R.id.mainTextField);
-
                         TextView theTextView = (TextView)findViewById(R.id.mainTextView);
-                        theTextView.setText(String.format("%s %s", theTextView.getText(), theTextField.getText()) );
+
+                        numList.add(theTextField.getText() );
+
+
+                        theTextView.setText(String.format("%s", numList.toString()  ));
 
                         theTextField.setText("");
                     }
@@ -45,6 +52,26 @@ public class MyActivity extends AppCompatActivity {
 
         );
 
+
+        Button popButton = (Button)findViewById(R.id.popButton);
+        popButton.setOnClickListener(
+                new Button.OnClickListener()
+                {
+
+                    public void onClick(View v)
+                    {
+                        if (numList.size() > 0 ) {
+                            TextView theTextView = (TextView) findViewById(R.id.mainTextView);
+                            numList.remove(numList.size() - 1);
+
+                            theTextView.setText(String.format("%s", numList.toString()));
+                        }
+                    }
+
+                }
+
+
+        );
 
         Button quitButton = (Button)findViewById(R.id.quitButton);
         quitButton.setOnClickListener(
