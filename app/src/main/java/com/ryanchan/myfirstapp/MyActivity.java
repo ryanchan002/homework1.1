@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Button;
-
 import java.util.ArrayList;
 
 public class MyActivity extends AppCompatActivity {
@@ -38,21 +37,28 @@ public class MyActivity extends AppCompatActivity {
                 {
                     public void onClick(View v)
                     {
+                        TextView errorButton = (TextView)findViewById(R.id.errorText);
+                        EditText theTextField = (EditText) findViewById(R.id.mainTextField);
+                        TextView theTextView = (TextView) findViewById(R.id.mainTextView);
+
                         if (numList.size() < 3)
                         {
-                            EditText theTextField = (EditText) findViewById(R.id.mainTextField);
-                            TextView theTextView = (TextView) findViewById(R.id.mainTextView);
+                            if (theTextField.length() == 1)
+                            {
+                                numList.add(theTextField.getText());
+                                theTextView.setText(String.format("%s", numList.toString() ));
 
-                            theTextView.setText(String.format("%s", numList.toString()));
+                                theTextField.setText("");
 
-                            theTextField.setText("");
-
-                            TextView errorButton = (TextView)findViewById(R.id.errorText);
-                            errorButton.setText("");
+                                errorButton.setText("");
+                            }
+                            else
+                            {
+                                errorButton.setText("The number must be between 0-9");
+                            }
                         }
                         else
                         {
-                            TextView errorButton = (TextView)findViewById(R.id.errorText);
                             errorButton.setText("You cannot have more than 3 numbers in the stack");
 
                         }
