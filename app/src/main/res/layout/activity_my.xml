@@ -3,7 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:id="@+id/errorText"
+        android:layout_gravity="center_horizontal" />
 
     <EditText android:id="@+id/mainTextField"
         android:layout_width="364dp"
@@ -12,30 +19,30 @@
 
     <TextView
         android:layout_width="343dp"
-        android:layout_height="107dp"
-        android:text="New Text"
+        android:layout_height="49dp"
         android:id="@+id/mainTextView" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="208dp"
+        android:layout_height="63dp"
         android:text="Pop"
         android:onClick="sendMessage"
         android:id="@+id/popButton" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="208dp"
         android:layout_height="wrap_content"
         android:text="Push"
         android:id="@+id/pushButton"
-        android:layout_gravity="bottom" />
+        android:layout_gravity="bottom"
+        android:layout_weight="0.06" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Quit"
         android:id="@+id/quitButton"
-        android:layout_gravity="bottom" />
+        android:layout_gravity="right" />
 
 </LinearLayout>
 

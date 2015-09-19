@@ -38,15 +38,26 @@ public class MyActivity extends AppCompatActivity {
                 {
                     public void onClick(View v)
                     {
-                        EditText theTextField = (EditText)findViewById(R.id.mainTextField);
-                        TextView theTextView = (TextView)findViewById(R.id.mainTextView);
+                        if (numList.size() < 3) {
+                            EditText theTextField = (EditText) findViewById(R.id.mainTextField);
+                            TextView theTextView = (TextView) findViewById(R.id.mainTextView);
 
-                        numList.add(theTextField.getText() );
+                            numList.add(theTextField.getText());
 
 
-                        theTextView.setText(String.format("%s", numList.toString()  ));
+                            theTextView.setText(String.format("%s", numList.toString()));
 
-                        theTextField.setText("");
+                            theTextField.setText("");
+
+                            TextView errorButton = (TextView)findViewById(R.id.errorText);
+                            errorButton.setText("");
+                        }
+                        else
+                        {
+                            TextView errorButton = (TextView)findViewById(R.id.errorText);
+                            errorButton.setText("You cannot have more than 3 numbers in the stack");
+
+                        }
                     }
                 }
 
@@ -65,6 +76,11 @@ public class MyActivity extends AppCompatActivity {
                             numList.remove(numList.size() - 1);
 
                             theTextView.setText(String.format("%s", numList.toString()));
+
+                            TextView errorButton = (TextView)findViewById(R.id.errorText);
+                            errorButton.setText("");
+
+
                         }
                     }
 
