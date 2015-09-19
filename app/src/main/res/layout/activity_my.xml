@@ -24,18 +24,18 @@
 
     <Button
         android:layout_width="208dp"
-        android:layout_height="63dp"
-        android:text="Pop"
-        android:onClick="sendMessage"
-        android:id="@+id/popButton" />
-
-    <Button
-        android:layout_width="208dp"
         android:layout_height="wrap_content"
         android:text="Push"
         android:id="@+id/pushButton"
         android:layout_gravity="bottom"
         android:layout_weight="0.06" />
+
+    <Button
+        android:layout_width="208dp"
+        android:layout_height="63dp"
+        android:text="Pop"
+        android:onClick="sendMessage"
+        android:id="@+id/popButton" />
 
     <Button
         android:layout_width="wrap_content"

@@ -38,12 +38,10 @@ public class MyActivity extends AppCompatActivity {
                 {
                     public void onClick(View v)
                     {
-                        if (numList.size() < 3) {
+                        if (numList.size() < 3)
+                        {
                             EditText theTextField = (EditText) findViewById(R.id.mainTextField);
                             TextView theTextView = (TextView) findViewById(R.id.mainTextView);
-
-                            numList.add(theTextField.getText());
-
 
                             theTextView.setText(String.format("%s", numList.toString()));
 
