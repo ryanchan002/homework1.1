@@ -47,9 +47,7 @@ public class MyActivity extends AppCompatActivity {
                             {
                                 numList.add(theTextField.getText());
                                 theTextView.setText(String.format("%s", numList.toString() ));
-
                                 theTextField.setText("");
-
                                 errorButton.setText("");
                             }
                             else
@@ -75,7 +73,8 @@ public class MyActivity extends AppCompatActivity {
 
                     public void onClick(View v)
                     {
-                        if (numList.size() > 0 ) {
+                        if (numList.size() > 0 )
+                        {
                             TextView theTextView = (TextView) findViewById(R.id.mainTextView);
                             numList.remove(numList.size() - 1);
 

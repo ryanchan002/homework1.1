@@ -28,21 +28,24 @@
         android:text="Push"
         android:id="@+id/pushButton"
         android:layout_gravity="bottom"
-        android:layout_weight="0.06" />
+        android:layout_weight="0.06"
+        android:backgroundTint="#59ff4e" />
 
     <Button
         android:layout_width="208dp"
         android:layout_height="63dp"
         android:text="Pop"
         android:onClick="sendMessage"
-        android:id="@+id/popButton" />
+        android:id="@+id/popButton"
+        android:backgroundTint="#49b3ff" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Quit"
         android:id="@+id/quitButton"
-        android:layout_gravity="right" />
+        android:layout_gravity="right"
+        android:backgroundTint="#ff1000" />
 
 </LinearLayout>
 
