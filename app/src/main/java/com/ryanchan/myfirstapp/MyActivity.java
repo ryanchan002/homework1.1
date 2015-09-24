@@ -48,7 +48,7 @@ public class MyActivity extends AppCompatActivity {
                                 numList.add(theTextField.getText());
                                 theTextView.setText(String.format("%s", numList.toString() ));
                                 theTextField.setText("");
-                                errorButton.setText("");
+                                errorButton.setText("%s pushed to the stack");
                             }
                             else
                             {
@@ -57,7 +57,7 @@ public class MyActivity extends AppCompatActivity {
                         }
                         else
                         {
-                            errorButton.setText("You cannot have more than 3 numbers in the stack");
+                            errorButton.setText("Stack is full");
 
                         }
                     }
