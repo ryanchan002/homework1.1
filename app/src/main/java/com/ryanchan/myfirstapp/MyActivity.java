@@ -50,7 +50,7 @@ public class MyActivity extends AppCompatActivity {
                                 //if it is, add it to the stack, print the stack, reset the textfield text and print the number pushed to the stack
                                 numList.add(theTextField.getText());
                                 theTextView.setText(String.format("%s", numList.toString() ));
-                                errorTextView.setText(String.format("%s pushed to the stack",theTextField.getText().toString() ) );
+                                errorTextView.setText(String.format("%s pushed to the stack", theTextField.getText().toString()));
 
                                 theTextField.setText("");
                             }
@@ -83,14 +83,17 @@ public class MyActivity extends AppCompatActivity {
                         {
                             //remove the last item in the stack
                             TextView theTextView = (TextView) findViewById(R.id.mainTextView);
+                            String poppedNumber = numList.get( numList.size()-1 ).toString() ;
+
+                            TextView errorTextView = (TextView)findViewById(R.id.errorText);
+
+                            errorTextView.setText(String.format("%s popped from the stack",poppedNumber  ));
+
                             numList.remove(numList.size() - 1);
 
                             //rest the textview text
                             theTextView.setText(String.format("%s", numList.toString()));
 
-                            //reset the error text
-                            TextView errorTextView = (TextView)findViewById(R.id.errorText);
-                            errorTextView.setText("");
 
 
                         }
