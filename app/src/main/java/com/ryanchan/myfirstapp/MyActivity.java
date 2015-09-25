@@ -37,27 +37,32 @@ public class MyActivity extends AppCompatActivity {
                 {
                     public void onClick(View v)
                     {
-                        TextView errorButton = (TextView)findViewById(R.id.errorText);
+                        TextView errorTextView = (TextView)findViewById(R.id.errorText);
                         EditText theTextField = (EditText) findViewById(R.id.mainTextField);
                         TextView theTextView = (TextView) findViewById(R.id.mainTextView);
 
+                        //this checks the stack to make sure that there are no more than 3 items to be pushed to the stack
                         if (numList.size() < 3)
                         {
+                            //check to see if the number is 0-9
                             if (theTextField.length() == 1)
                             {
+                                //if it is, add it to the stack, print the stack, reset the textfield text and print the number pushed to the stack
                                 numList.add(theTextField.getText());
                                 theTextView.setText(String.format("%s", numList.toString() ));
+                                errorTextView.setText(String.format("%s pushed to the stack",theTextField.getText().toString() ) );
+
                                 theTextField.setText("");
-                                errorButton.setText("%s pushed to the stack");
                             }
                             else
                             {
-                                errorButton.setText("The number must be between 0-9");
+                                //number is not 0-9
+                                errorTextView.setText("The number must be between 0-9");
                             }
                         }
                         else
                         {
-                            errorButton.setText("Stack is full");
+                            errorTextView.setText("Stack is full");
 
                         }
                     }
@@ -73,15 +78,19 @@ public class MyActivity extends AppCompatActivity {
 
                     public void onClick(View v)
                     {
+                        //make sure that we are not trying to pop an empty stack
                         if (numList.size() > 0 )
                         {
+                            //remove the last item in the stack
                             TextView theTextView = (TextView) findViewById(R.id.mainTextView);
                             numList.remove(numList.size() - 1);
 
+                            //rest the textview text
                             theTextView.setText(String.format("%s", numList.toString()));
 
-                            TextView errorButton = (TextView)findViewById(R.id.errorText);
-                            errorButton.setText("");
+                            //reset the error text
+                            TextView errorTextView = (TextView)findViewById(R.id.errorText);
+                            errorTextView.setText("");
 
 
                         }
@@ -99,6 +108,7 @@ public class MyActivity extends AppCompatActivity {
 
                     public void onClick(View v)
                     {
+                        //exit when the quit button is pressed
                         System.exit(0);
 
                     }
