@@ -94,8 +94,11 @@ public class MyActivity extends AppCompatActivity {
                             //rest the textview text
                             theTextView.setText(String.format("%s", numList.toString()));
 
+                        }
+                        else {
+                            TextView errorTextView = (TextView) findViewById(R.id.errorText);
 
-
+                            errorTextView.setText(String.format("Stack is Empty"));
                         }
                     }
 
